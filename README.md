@@ -6,7 +6,7 @@ infrastrucuture needed for that project including:
 * AWS S3 bucket
 * AWS IAM users with the necessary permissions and access keys
 * Age encryption identities and recipients
-* Passphrase secret files for the users
+* Passphrase secret files for each user
 * Initial job template files for each user
 
 The recipient file is also uploaded to the bucket ready for use.
@@ -23,8 +23,10 @@ straight forward to setup - links to their installation documentation.
 
 ## Quick Start
 
-This walks though getting the system built and ready to go without much detail on the internals. There's more detail on
-the encryption and configuration files in the main [s3backup](https://github.com/studio1767/s3backup) repository.
+This walks though getting the system built and each user ready to go without going into detail on the 
+internals and without explaining how to use the tools.
+
+See the main [s3backup](https://github.com/studio1767/s3backup) repository for those details.
 
 ### Setup Variables
 
@@ -66,25 +68,4 @@ Make sure you protect your secrets and identities files with secure permissions:
     chmod 0600 ~/.s3bu/identities.txt
 
 The applications won't run if there are group or world access permissions on these files.
-
-### Update The Job Configurations
-
-The job file templates are written to `local/jobs`. They are all identical and need to be edited 
-for the task and uploaded to the repository.
-
-Once it's ready to upload, you can use a command like this:
-
-    s3jobupload -p s3backup mybucketname myjobname local/jobs/myjobname-000.yml
-
-This will encrypt the job file so it is opaque in the bucket, and increments the version 
-number so the uploaded job file will be named `myjobname-001.yml`.
-
-### Running Your Backup
-
-Now you're ready to run the backup job:
-
-    s3backup -p s3backup mybucketname myjobname
-
-The backup tool downloads the most recent job configuration (the one with the highest numbered suffix)
-and runs the job.
 
