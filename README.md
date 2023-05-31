@@ -9,8 +9,6 @@ infrastrucuture needed for that project including:
 * Passphrase secret files for each user
 * Initial job template files for each user
 
-The recipient file is also uploaded to the bucket ready for use.
-
 ## Prerequisites
 
 There are a few tools that need to be installed and running before proceeding. They're all pretty
@@ -43,8 +41,16 @@ This is simple. If you've got your variables right, simply run:
     terraform init
     terraform apply
 
-Once this is completed, the bucket is created and the recipients encryption key is uploaded to
-the key `repo/recipients.txt` ready for the tools to use it.
+This performs a number of actions, including:
+
+* creating the s3 bucket for backing up to
+* creating and uploading the recipients encryption key
+* creates aws iam users with appropriate permissions and access keys
+* creates aws configuration and credentials files for each user
+* creates passphrase files for each user
+* uploading a default configuration for all jobs mentioned in the variables
+
+Using and distributing these files is discussed in the following sections.
 
 ### Distribute User Files
 
