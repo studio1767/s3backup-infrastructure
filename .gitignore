@@ -1,0 +1,13 @@
+# ignore terraform working state
+*.tfvars
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.*
+
+# for local work
+local/
+
+# system files
+.DS_Store
+

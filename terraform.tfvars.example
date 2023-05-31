@@ -1,0 +1,24 @@
+
+# aws variables
+aws_profile = "myprofile"
+aws_region = "us-west-1"
+
+# the bucket
+bucket_name = "mybucketname"
+
+# the admin users
+admin_users = ["admin1", "admin2"]
+
+# users that run backup jobs and the jobs that they run
+backup_users = {
+  buser1 = [ "job1a"]
+  buser2 = [ "job2a", "job2b" ]
+}
+
+# users that can run restore jobs
+# note that backup users can also run restores from their own jobs
+restore_users = {
+  ruser1 = [ "job1a", "job2a", "job2b" ]
+  ruser2 = [ "job2b" ]
+}
+

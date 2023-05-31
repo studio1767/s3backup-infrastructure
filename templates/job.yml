@@ -1,0 +1,47 @@
+---
+# the directory to scan for inputs
+sources:
+- path: /home/me
+  label: home
+- path: /home/me/Projects
+  label: projects
+
+# list of file extensions to exclude
+exclude_extensions:
+- .DS_Store
+- .tfstate
+- .tfstate.backup
+
+# list of file extensions to include
+# include_extensions:
+# - .go
+# - .txt
+
+# top level directories to exclude
+exclude_top_dirs:
+- Applications
+- Downloads
+- Library
+- Movies
+- Music
+- Projects
+- Public
+- .Trash
+
+# top level directories to include
+# include_top_dirs:
+# - Projects
+  
+# directories we skip
+skip_dirs:
+- 3rdparty
+- downloads
+- pyenv
+- workdir
+- .terraform
+- .terraform.d
+
+# directories we skip ... if they have one of these (file or directory)
+skip_dir_items:
+- .nobackup
+- .git
