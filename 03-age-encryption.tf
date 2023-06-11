@@ -6,13 +6,13 @@
 
 resource "null_resource" "age_identity" {
   provisioner "local-exec" {
-    command = "mkdir -p local/keys && rm -f local/keys/identity.txt && age-keygen -o local/keys/identities.txt"
+    command = "mkdir -p local/keys && rm -f local/keys/identities.txt && age-keygen -o local/keys/identities.txt"
   }
 }
 
 resource "null_resource" "age_recipient" {
   provisioner "local-exec" {
-    command = "rm -f local/keys/recipient.txt && age-keygen -y -o local/keys/recipients.txt local/keys/identities.txt "
+    command = "rm -f local/keys/recipients.txt && age-keygen -y -o local/keys/recipients.txt local/keys/identities.txt "
   }
   
   depends_on = [
